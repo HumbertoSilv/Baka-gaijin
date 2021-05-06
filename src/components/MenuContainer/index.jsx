@@ -3,10 +3,9 @@ import Product from '../Product';
 
 class MenuContainer extends Component {
     render() {
-        //const {products, filteredProducts, currentSale} = this.props.state;
         return(
             <>
-                <Product state={this.props.state}/>
+                <Product state={this.props.state} propsHandleClick={this.props.propsHandleClick}/>
             </>
         );
     }

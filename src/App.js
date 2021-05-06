@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import './App.css';
 import MenuContainer from './components/MenuContainer';
+import Total from './components/Total';
 
 class App extends Component {
 
@@ -16,15 +17,48 @@ class App extends Component {
     ],
     filteredProducts: [],
     currentSale: { total: 0, saleDetails: [] },
+    search: ''
   }
 
-  render() {
-    //const {id} = this.state;
+  showProducts = () => {
+    const {products, search} = this.state;
+    const match = products.filter((cur) => cur.name === search);
+    this.setState({filteredProducts: match});
+  }
+
+  handleClick = (productId) => {
+    const {total, saleDetails} = this.state.currentSale;
+    this.setState({currentSale: {total : total + productId.price, saleDetails:[...saleDetails, productId]} });
+  }
+
+  render() {    
     return (
       <div className="App">
+        <div className="search">
+          <input
+            value={this.props.search}
+            onChange={(e) => this.setState({search: e.target.value})}
+          />
+          <button onClick={this.showProducts} >Search</button>
+        </div>
         <header className="App-header">
-          <MenuContainer state={this.state}/>
+          <MenuContainer state={this.state} propsHandleClick={this.handleClick}/>
         </header>
+
+        <Total propsTotal={this.state.currentSale.total}/>
+
+        <main>
+          {
+            this.state.currentSale.saleDetails.map((cur) => (
+              <div className="box" >
+              <h1>{cur.name}</h1>
+              <p>Category: {cur.category}</p>
+              <p>Price: {cur.price}$</p>
+              </div>
+                )
+            )  
+          }
+        </main>
       </div>
     );  
   }
