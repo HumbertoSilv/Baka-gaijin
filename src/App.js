@@ -22,13 +22,17 @@ class App extends Component {
 
   showProducts = () => {
     const {products, search} = this.state;
-    const match = products.filter((cur) => cur.name === search);
+    const match = products.filter((cur) => cur.name.toLocaleLowerCase() === search);
     this.setState({filteredProducts: match});
   }
 
   handleClick = (productId) => {
     const {total, saleDetails} = this.state.currentSale;
-    this.setState({currentSale: {total : total + productId.price, saleDetails:[...saleDetails, productId]} });
+    const check = saleDetails.some((cur) => {
+      return cur.id === productId.id});
+      check? alert("Esse produto já está em sua lista!") 
+        :  
+      this.setState({currentSale: {total : total + productId.price, saleDetails:[...saleDetails, productId]} });
   }
 
   render() {    
