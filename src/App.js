@@ -46,7 +46,6 @@ import SearchBar from './components/SearchBar';
 //           />
 //           <button onClick={this.showProducts} >Search</button>
 //         </div>
-//         <SearchBar prop={this.state}/>
 //         <header className="App-header">
 //           <MenuContainer state={this.state} propsHandleClick={this.handleClick}/>
 //         </header>
@@ -88,22 +87,25 @@ function App (){
 
 	const showProducts = () => {
 		const match = products.filter((cur) => cur.name.toLocaleLowerCase() === search);
-		setFilteredProducts([...filteredProducts, match]);
+		setFilteredProducts([...filteredProducts, ...match]);
 	}
 
-	// const handleClick = (productId) => {
-	//     const check = saleDetails.some((cur) => {
-	//       return cur.id === productId.id});
-	//       check? alert("Esse produto já está em sua lista!") 
-	//         :  
-	//       this.setState({currentSale: {total : total + productId.price, saleDetails:[...saleDetails, productId]} });
-	// }
+	const handleClick = (productId) => {
+	    const check = currentSale.saleDetails.some((cur) => {
+	      return cur.id === productId.id});
+	      check? alert("Esse produto já está em sua lista!")
+	        :  
+		  setCurrentSale({total : currentSale.total + productId.price, saleDetails:[...currentSale.saleDetails, productId]} );
+	}
 
 	return(
 		<div className="App">
 
 			<SearchBar setSearch={setSearch} showProducts={showProducts} search={search}/>
-			
+			<header className="App-header">
+           		<MenuContainer products={products} filteredProducts={filteredProducts} handleClick={handleClick}/>
+         	</header>
+
 		</div>
   	);
 }
