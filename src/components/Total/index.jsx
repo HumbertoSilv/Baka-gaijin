@@ -1,14 +1,6 @@
-import { Component } from "react";
-
-class Total extends Component {
-    render() {
-        const {propsTotal} = this.props;
-        return(
-            <>
-            <h1>{`Subtotal - ${propsTotal} R$`}</h1>
-            </>
-        );
-    }
+const Total = ({currentSale}) => {
+    return(
+        <h1>{`Subtotal - ${currentSale.total} R$`}</h1>
+    );
 }
-
 export default Total;

@@ -2,7 +2,6 @@ import './style.css'
 
 
 const Product = ({products, filteredProducts, handleClick}) => {
-    console.log(filteredProducts)
     return(
         <>
         {filteredProducts.length === 0?
