@@ -1,0 +1,7 @@
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #fbfaf0;
+    padding: 15px;
+}

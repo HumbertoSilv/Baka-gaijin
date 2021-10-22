@@ -7,20 +7,22 @@ const Product = ({products, filteredProducts, handleClick}) => {
         {filteredProducts.length === 0?
             products.map((cur) => (
             <div className="box" >
-            <h1>{cur.name}</h1>
-            <p>Category: {cur.category}</p>
-            <p>Price: {cur.price}$</p>
-            <button onClick={() => handleClick(cur)} >add</button>
+            <img src={cur.img} alt={cur.name} />
+            <div className="text">
+                <h1>{cur.name}</h1>
+                <p>{cur.description}</p>
+                <button onClick={() => handleClick(cur)} >Adicionar R$ {cur.price}</button>
+            </div>
             </div>
                 )
             )
             :  
             filteredProducts.map((cur) => (
             <div className="box" >
+            <img src={cur.img} alt={cur.name} />
             <h1>{cur.name}</h1>
-            <p>Category: {cur.category}</p>
-            <p>Price: {cur.price}$</p>
-            <button onClick={() => handleClick(cur)} >add</button>
+            <p>{cur.description}</p>
+            <button onClick={() => handleClick(cur)} >Adicionar R$ {cur.price}</button>
             </div>
                 )
             )

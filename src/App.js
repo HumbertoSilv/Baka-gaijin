@@ -2,28 +2,27 @@ import { useState } from 'react';
 import './App.css';
 import MenuContainer from './components/MenuContainer';
 import Total from './components/Total';
-import SearchBar from './components/SearchBar';
+// import SearchBar from './components/SearchBar';
 
 
 function App (){
 
 	const [products, setProducts] = useState([
-		{ id: 1, name: 'Hamburguer', category: 'Sanduíches', price: 7.99 },
-		{ id: 2, name: 'X-Burguer', category: 'Sanduíches', price: 8.99 },
-		{ id: 3, name: 'X-Salada', category: 'Sanduíches', price: 10.99 },
-		{ id: 4, name: 'Big Kenzie', category: 'Sanduíches', price: 16.99 },
-		{ id: 5, name: 'Guaraná', category: 'Bebidas', price: 4.99 },
-		{ id: 6, name: 'Coca-cola', category: 'Bebidas', price: 4.99 },
-		{ id: 7, name: 'Fanta', category: 'Bebidas', price: 4.99 },
+		{ id: 1, name: 'Temaki', description: 'salmão, atum, filadelphia, shimeji, califórnia, skin, kani, camarão, polvo', img: "https://www.matsuya.com.br/images/img3.png", price: 7.99 },
+		{ id: 2, name: 'Poke', description: 'O prato havaiano que conquistou o Brasil', img: "https://www.matsuya.com.br/images/img6.png", price: 8.99 },
+		{ id: 3, name: 'Djo', description: 'Salmão e Shimeji', img: "https://www.matsuya.com.br/images/img8.png", price: 10.99 },
+		{ id: 4, name: 'Niguiri', description: 'salmão, atum, skin, kani, camarão, polvo', img: "https://www.matsuya.com.br/images/img4.png", price: 16.99 },
+		{ id: 5, name: 'Sashimi', description: 'salmão, atum, peixe branco, polvo', img: "https://www.matsuya.com.br/images/img5.png", price: 4.99 },
+		{ id: 6, name: 'Shimeji', description: 'com manteiga e cebolinha', img: "https://www.matsuya.com.br/images/img7.png", price: 4.99 },
 	]);
 	const [filteredProducts, setFilteredProducts] = useState([]);
 	const [currentSale, setCurrentSale] = useState({total: 0, saleDetails: []});
-	const [search, setSearch] = useState("");
+	//const [search, setSearch] = useState("");
 
-	const showProducts = () => {
-		const match = products.filter((cur) => cur.name.toLocaleLowerCase() === search);
-		setFilteredProducts([...filteredProducts, ...match]);
-	}
+	// const showProducts = () => {
+	// 	const match = products.filter((cur) => cur.name.toLocaleLowerCase() === search);
+	// 	setFilteredProducts([...filteredProducts, ...match]);
+	// }
 
 	const handleClick = (productId) => {
 	    const check = currentSale.saleDetails.some((cur) => {
@@ -35,24 +34,24 @@ function App (){
 
 	return(
 		<div className="App">
-
-			<SearchBar setSearch={setSearch} showProducts={showProducts} search={search}/>
+			{/* <SearchBar setSearch={setSearch} showProducts={showProducts} search={search}/> */}
 			<header className="App-header">
-           		<MenuContainer products={products} filteredProducts={filteredProducts} handleClick={handleClick}/>
+				<h1 className="baka-gaijin">Baka Gaijin</h1>
          	</header>
-			<Total currentSale={currentSale}/>
-
 			<main>
-				{currentSale.saleDetails.map((cur) => (
-				<div className="box" >
-				<h1>{cur.name}</h1>
-				<p>Category: {cur.category}</p>
-				<p>Price: {cur.price}$</p>
-				</div>
-					)
-				)}
+				<Total currentSale={currentSale}/>
+				<MenuContainer products={products} filteredProducts={filteredProducts} handleClick={handleClick}/>
          	</main>
-
+			<section>
+				{currentSale.saleDetails.map((cur) => (
+					<div className="box" >
+					<h1>{cur.name}</h1>
+					<p>Category: {cur.category}</p>
+					<p>Price: {cur.price}$</p>
+					</div>
+						)
+					)}
+			</section>
 		</div>
   	);
 }
