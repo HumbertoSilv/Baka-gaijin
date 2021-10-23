@@ -1,7 +1,7 @@
 .menu {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     background-color: #fbfaf0;
-    padding: 15px;
+    padding: 10px;
+    overflow-x: scroll;
 }

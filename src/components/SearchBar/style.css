@@ -1,18 +1,18 @@
 .search {
-    text-align: center;
-    margin: 40px;
-  }
-    .search input {
-      width: 300px;
-      height: 30px;
-      border-radius: 8px;
-      border: 1px solid grey;
-    }
-    .search button {
-      width: 100px;
-      height: 33px;
-      border-radius: 8px;
-      border: 2px solid lightblue;
-      background-color: #0f4df8fc;
-      color: white;
-    }
+	padding: 10px 10px 20px;
+    background-color: #fbfaf0;
+	}
+		.search input {
+			width: 60%;
+			height: 23px;
+			border-radius: 0 8px 8px 0;
+			border: 1px solid #b5b5b5;
+		}
+		.search button {
+			width: 15%;
+			height: 27px;
+			border-radius: 8px 0 0 8px;
+			border: none;
+			background-color: #ff2e2e;
+			color: white;
+		}

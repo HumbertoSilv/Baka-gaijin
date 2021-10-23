@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import MenuContainer from './components/MenuContainer';
 import Total from './components/Total';
-// import SearchBar from './components/SearchBar';
+import SearchBar from './components/SearchBar';
 
 
 function App (){
@@ -14,15 +14,16 @@ function App (){
 		{ id: 4, name: 'Niguiri', description: 'salmão, atum, skin, kani, camarão, polvo', img: "https://www.matsuya.com.br/images/img4.png", price: 16.99 },
 		{ id: 5, name: 'Sashimi', description: 'salmão, atum, peixe branco, polvo', img: "https://www.matsuya.com.br/images/img5.png", price: 4.99 },
 		{ id: 6, name: 'Shimeji', description: 'com manteiga e cebolinha', img: "https://www.matsuya.com.br/images/img7.png", price: 4.99 },
+		{ id: 7, name: 'coquinha', description: 'bebidas', img: "https://www.matsuya.com.br/images/img7.png", price: 8.99 },
 	]);
-	const [filteredProducts, setFilteredProducts] = useState([]);
+	const [filteredProducts, setFilteredProducts] = useState();
 	const [currentSale, setCurrentSale] = useState({total: 0, saleDetails: []});
-	//const [search, setSearch] = useState("");
+	const [search, setSearch] = useState("");
 
-	// const showProducts = () => {
-	// 	const match = products.filter((cur) => cur.name.toLocaleLowerCase() === search);
-	// 	setFilteredProducts([...filteredProducts, ...match]);
-	// }
+	const showProducts = () => {
+		const match = products.filter((cur) => cur.name.toLocaleLowerCase() === search);
+		setFilteredProducts(...match);
+	}
 
 	const handleClick = (productId) => {
 	    const check = currentSale.saleDetails.some((cur) => {
@@ -34,15 +35,32 @@ function App (){
 
 	return(
 		<div className="App">
-			{/* <SearchBar setSearch={setSearch} showProducts={showProducts} search={search}/> */}
 			<header className="App-header">
 				<h1 className="baka-gaijin">Baka Gaijin</h1>
          	</header>
 			<main>
 				<Total currentSale={currentSale}/>
-				<MenuContainer products={products} filteredProducts={filteredProducts} handleClick={handleClick}/>
+				<SearchBar setSearch={setSearch} showProducts={showProducts} search={search}/>
+				{
+					filteredProducts ? 
+						<div className="box text" >
+						<div className="product-img">
+							<img src={filteredProducts["img"]} alt={filteredProducts["name"]} />
+						</div>
+							<h1>{filteredProducts["name"]}</h1>
+							<p>{filteredProducts["description"]}</p>
+							<button onClick={() => handleClick(filteredProducts)} >Adicionar R$ {filteredProducts["price"]}</button>
+						</div>
+						:
+						<div>
+							<h2>Pratos</h2>
+							<MenuContainer products={products} filteredProducts={filteredProducts} handleClick={handleClick}/>
+							<h2>Bebidas</h2>
+							<MenuContainer products={products} filteredProducts={filteredProducts} handleClick={handleClick}/>
+						</div>
+				}
          	</main>
-			<section>
+			{/* <section>
 				{currentSale.saleDetails.map((cur) => (
 					<div className="box" >
 					<h1>{cur.name}</h1>
@@ -51,7 +69,7 @@ function App (){
 					</div>
 						)
 					)}
-			</section>
+			</section> */}
 		</div>
   	);
 }
