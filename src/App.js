@@ -28,11 +28,7 @@ function App (){
 		setFilteredProducts(...match);
 	}
 
-	const handleClick = (productId) => {
-	    const check = currentSale.saleDetails.some((cur) => {
-	      return cur.id === productId.id});
-	      check? alert("Esse produto já está em sua lista!")
-	        :  
+	const handleClick = (productId) => { 
 		  setCurrentSale({total : currentSale.total + productId.price, saleDetails:[...currentSale.saleDetails, productId]} );
 	}
 
