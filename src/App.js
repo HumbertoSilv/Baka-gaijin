@@ -4,6 +4,7 @@ import MenuContainer from './components/MenuContainer';
 import Total from './components/Total';
 import SearchBar from './components/SearchBar';
 import ProductResult from './components/ProductResult';
+import img01 from './assets/img01.png'
 
 
 function App (){
@@ -35,7 +36,11 @@ function App (){
 	return(
 		<div className="App">
 			<header className="App-header">
-				<h1 className="baka-gaijin">Baka Gaijin</h1>
+			<img src={img01} alt="" />
+				<div className="baka-gaijin">
+					<div>Baka</div>
+					<div>Gaijin</div>
+				</div>
          	</header>
 			<main>
 				<Total currentSale={currentSale}/>

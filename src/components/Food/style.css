@@ -3,7 +3,7 @@
 .box {
     text-align: center;
     margin: 0 15px 25px;
-    min-width: 75%;
+    min-width: 280px;
     height: 330px;
     border-radius: 8px;
     font-family: 'Balsamiq Sans', cursive;
@@ -35,6 +35,7 @@
         padding-top: 10px;
         margin: 0;
         color: #36383a;
+        font-family: 'MedievalSharp', cursive;
     }
 
     .text p {

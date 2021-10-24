@@ -7,6 +7,10 @@
 	background-color: #ff2e2e;
 }
 
+	.App-header img {
+		display: none;
+	}
+
 .baka-gaijin {
   font-family: 'MedievalSharp', cursive;
   text-align: center;
@@ -17,7 +21,7 @@
 }
 
 h2 {
-	padding-top: 10px;
+	padding: 25px 5px;
 	margin: 0 10px;
 	color: #36383a;
 	background-color: #fbfaf0;
@@ -41,4 +45,12 @@ h2 {
 }
  hr {
 	 margin: 0;
+ }
+
+ @media screen and (min-width: 600px) {
+	.baka-gaijin {
+		font-family: 'MedievalSharp', cursive;
+		margin: 8px;
+    	font-size: 5.5em;
+	  }
  }
