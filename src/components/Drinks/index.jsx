@@ -1,13 +1,14 @@
 import './style.css'
 
 
-const Product = ({products, handleClick}) => {
+const Drinks = ({products, handleClick}) => {
+    const drinkList = products.filter((cur) => cur.category === "drink" )
     return(
         <>
         {
-            products.map((cur) => (
+            drinkList.map((cur) => (
             <div className="box text" >
-            <div className="product-img">
+            <div className="drink-img">
                 <img src={cur.img} alt={cur.name} />
             </div>
                 <h1>{cur.name}</h1>
@@ -20,4 +21,4 @@ const Product = ({products, handleClick}) => {
         </>
     );
 }
-export default Product;
+export default Drinks;

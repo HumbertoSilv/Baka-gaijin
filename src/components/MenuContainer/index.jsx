@@ -1,11 +1,17 @@
+import Drinks from '../Drinks';
 import Product from '../Product';
 import "./styles.css"
 
 
-const MenuContainer = ({products, filteredProducts, handleClick}) => {
+const MenuContainer = ({products, handleClick, category}) => {
     return(
         <div className="menu">
-            <Product products={products} filteredProducts={filteredProducts} handleClick={handleClick}/>
+            {category === "drink" ?
+                <Drinks products={products} handleClick={handleClick}/>
+                :
+                <Product products={products} handleClick={handleClick}/>
+
+            }
         </div>
     );
 }
