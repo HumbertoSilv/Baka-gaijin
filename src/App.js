@@ -3,7 +3,6 @@ import './App.css';
 import MenuContainer from './components/MenuContainer';
 import Total from './components/Total';
 import SearchBar from './components/SearchBar';
-import Drinks from './components/Drinks';
 
 
 function App (){
