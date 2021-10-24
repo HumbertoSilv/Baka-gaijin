@@ -45,15 +45,7 @@ function App (){
 				<Total currentSale={currentSale}/>
 				<SearchBar setSearch={setSearch} showProducts={showProducts} search={search}/>
 				{
-					filteredProducts ? 
-						// <div className="box text" >
-						// <div className="product-img">
-						// 	<img src={filteredProducts["img"]} alt={filteredProducts["name"]} />
-						// </div>
-						// 	<h1>{filteredProducts["name"]}</h1>
-						// 	<p>{filteredProducts["description"]}</p>
-						// 	<button onClick={() => handleClick(filteredProducts)} >Adicionar R$ {filteredProducts["price"]}</button>
-						// </div>
+					filteredProducts ?
 						<ProductResult filteredProducts={filteredProducts} handleClick={handleClick}/>
 						:
 						<div>
