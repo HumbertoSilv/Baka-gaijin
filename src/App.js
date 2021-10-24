@@ -3,6 +3,7 @@ import './App.css';
 import MenuContainer from './components/MenuContainer';
 import Total from './components/Total';
 import SearchBar from './components/SearchBar';
+import ProductResult from './components/ProductResult';
 
 
 function App (){
@@ -45,14 +46,15 @@ function App (){
 				<SearchBar setSearch={setSearch} showProducts={showProducts} search={search}/>
 				{
 					filteredProducts ? 
-						<div className="box text" >
-						<div className="product-img">
-							<img src={filteredProducts["img"]} alt={filteredProducts["name"]} />
-						</div>
-							<h1>{filteredProducts["name"]}</h1>
-							<p>{filteredProducts["description"]}</p>
-							<button onClick={() => handleClick(filteredProducts)} >Adicionar R$ {filteredProducts["price"]}</button>
-						</div>
+						// <div className="box text" >
+						// <div className="product-img">
+						// 	<img src={filteredProducts["img"]} alt={filteredProducts["name"]} />
+						// </div>
+						// 	<h1>{filteredProducts["name"]}</h1>
+						// 	<p>{filteredProducts["description"]}</p>
+						// 	<button onClick={() => handleClick(filteredProducts)} >Adicionar R$ {filteredProducts["price"]}</button>
+						// </div>
+						<ProductResult filteredProducts={filteredProducts} handleClick={handleClick}/>
 						:
 						<div>
 							<h2>Pratos</h2>

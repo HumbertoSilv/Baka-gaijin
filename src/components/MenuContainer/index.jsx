@@ -1,5 +1,5 @@
 import Drinks from '../Drinks';
-import Product from '../Product';
+import Food from '../Food';
 import "./styles.css"
 
 
@@ -9,7 +9,7 @@ const MenuContainer = ({products, handleClick, category}) => {
             {category === "drink" ?
                 <Drinks products={products} handleClick={handleClick}/>
                 :
-                <Product products={products} handleClick={handleClick}/>
+                <Food products={products} handleClick={handleClick}/>
 
             }
         </div>

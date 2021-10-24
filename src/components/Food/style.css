@@ -24,10 +24,12 @@
         top: 270px;
         left: 50px;
     }
-    .drink-img img {
-        width: 100%;
+
+    .food-img {
+        padding: 15px;
+        background-color: #ff2e2e;
         border-radius: 8px 8px 0 0;
-    }
+        }
 
     .text h1 {
         padding-top: 10px;
