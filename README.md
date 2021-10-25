@@ -2,7 +2,6 @@
 
 Exercício simples de React para praticar Componentização, Props e UseState.
 
-
 Link do [Github]() 
 
 Link do [Baka Gaijin]()
