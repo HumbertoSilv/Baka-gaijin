@@ -5,6 +5,7 @@ const SearchBar = ({showProducts, setSearch, search}) => {
         <div className="search">
             <button onClick={showProducts} >?</button>
             <input
+                placeholder="Pesquise aqui..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
             />

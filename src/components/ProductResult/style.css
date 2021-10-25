@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
 
-.box {
+.box-result {
     text-align: center;
-    margin: 0 15px 25px;
+    margin: auto;
     width: 75%;
+    max-width: 280px;
     height: 330px;
     border-radius: 8px;
     font-family: 'Balsamiq Sans', cursive;
     box-shadow: 0px 2px 9px 0px;
     position: relative;
 }
-    .box button {
+    .box-result button {
         width: 65%;
         height: 14%;
         border-radius: 8px;

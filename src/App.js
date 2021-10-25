@@ -4,7 +4,7 @@ import MenuContainer from './components/MenuContainer';
 import Total from './components/Total';
 import SearchBar from './components/SearchBar';
 import ProductResult from './components/ProductResult';
-import img01 from './assets/img01.png'
+import img04 from './assets/img04.png';
 
 
 function App (){
@@ -36,15 +36,14 @@ function App (){
 	return(
 		<div className="App">
 			<header className="App-header">
-			<img src={img01} alt="" />
 				<div className="baka-gaijin">
 					<div>Baka</div>
 					<div>Gaijin</div>
 				</div>
          	</header>
 			<main>
-				<Total currentSale={currentSale}/>
 				<SearchBar setSearch={setSearch} showProducts={showProducts} search={search}/>
+				<Total currentSale={currentSale}/>
 				{
 					filteredProducts ?
 						<ProductResult filteredProducts={filteredProducts} handleClick={handleClick}/>
@@ -61,6 +60,7 @@ function App (){
 				<div className="contact">
 					<p>@BakaGaijin</p>
 					<p>(11) 3227-3451</p>
+					<img className="img04" src={img04} alt="" />
 				</div>
 				<hr/>
 				<div className="copry">Copyright © 2021 Baka Gaijin </div>

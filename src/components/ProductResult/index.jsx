@@ -5,7 +5,7 @@ const ProductResult = ({filteredProducts, handleClick}) => {
     console.log(filteredProducts)
     return(
         <>
-        <div className="box text" >
+        <div className="box-result text" >
         <div className={`${filteredProducts.category}-img`}>
             <img src={filteredProducts.img} alt={filteredProducts.name} />
         </div>
