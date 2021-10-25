@@ -1,19 +1,18 @@
 .search {
 	padding: 25px 5% 15px;
-    background-color: #fbfaf0;
+}
+	.search input {
+		width: 80%;
+		height: 35px;
+		border-radius: 0 8px 8px 0;
+		border: 1px solid #b5b5b5;
 	}
-		.search input {
-			width: 80%;
-			height: 35px;
-			border-radius: 0 8px 8px 0;
-			border: 1px solid #b5b5b5;
-		}
-		.search button {
-			width: 15%;
-			max-width: 55px;
-			height: 39px;
-			border-radius: 8px 0 0 8px;
-			border: none;
-			background-color: #ff2e2e;
-			color: white;
-		}
+	.search button {
+		width: 15%;
+		max-width: 55px;
+		height: 39px;
+		border-radius: 8px 0 0 8px;
+		border: none;
+		background-color: var(--color-primary);
+    	color: var(--background-color);
+	}

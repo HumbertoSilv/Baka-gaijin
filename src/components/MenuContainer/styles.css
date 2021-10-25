@@ -1,6 +1,6 @@
 .menu {
     display: flex;
-    background-color: #fbfaf0;
+    background-color: var(--background-color);
     padding: 10px;
     overflow-x: scroll;
 }

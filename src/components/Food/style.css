@@ -36,18 +36,11 @@
     .text h1 {
         padding-top: 10px;
         margin: 0;
-        color: #36383a;
-        font-family: 'MedievalSharp', cursive;
+        color: var(--color-text-primary);
+        font-family: var(--font-primary);
     }
 
     .text p {
         padding: 0 15px 0 15px;
-        color: #36383a;
-    }
-
-    .text .price {
-        color: #1a1818;
-        text-align: end;
-        font-size: 1.5em;
-        margin: 0;
+        color: var(--color-text-secondary);
     }

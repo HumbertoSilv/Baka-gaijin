@@ -2,7 +2,6 @@ import './style.css'
 
 
 const ProductResult = ({filteredProducts, handleClick}) => {
-    console.log(filteredProducts)
     return(
         <>
         <div className="box-result text" >
