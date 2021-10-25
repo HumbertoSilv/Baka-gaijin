@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+
+.box-result {
+    text-align: center;
+    margin: auto;
+    width: 75%;
+    max-width: 280px;
+    height: 330px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 9px 0px;
+    position: relative;
+}
+
+    .box-result:hover {
+        box-shadow: 0 10px 20px 0;
+    }
+    .box-result button {
+        width: 65%;
+        height: 14%;
+        border-radius: 8px;
+        position: absolute;
+        border: none;
+        background-color: var(--color-secondary);
+        color: var(--background-color);
+        font-size: 1em;
+        font-family: 'Balsamiq Sans', cursive;
+        margin-bottom: 10px;
+        top: 275px;
+        left: 50px;
+    }
+
+    .food-img {
+        padding: 15px;
+        background-color: var(--color-primary);
+        border-radius: 8px 8px 0 0;
+        }
+    
+    .drink-img img {
+        width: 100%;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .text h1 {
+        padding-top: 10px;
+        margin: 0;
+        color: var(--color-text-primary);
+        font-family: var(--font-primary);
+    }
+
+    .text p {
+        padding: 0 15px 0 15px;
+        color: var(--color-text-secondary);
+    }

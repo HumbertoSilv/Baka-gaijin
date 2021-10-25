@@ -1,14 +1,18 @@
-import { Component } from "react";
-import Product from '../Product';
+import Drinks from '../Drinks';
+import Food from '../Food';
+import "./styles.css"
 
-class MenuContainer extends Component {
-    render() {
-        return(
-            <>
-                <Product state={this.props.state} propsHandleClick={this.props.propsHandleClick}/>
-            </>
-        );
-    }
+
+const MenuContainer = ({products, handleClick, category}) => {
+    return(
+        <div className="menu">
+            {category === "drink" ?
+                <Drinks products={products} handleClick={handleClick}/>
+                :
+                <Food products={products} handleClick={handleClick}/>
+
+            }
+        </div>
+    );
 }
-
 export default MenuContainer;

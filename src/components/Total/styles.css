@@ -1,0 +1,7 @@
+.total {
+    font-size: 1em;
+    margin: auto;
+    text-align: end;
+    padding: 10px;
+    color: var(--color-text-primary);
+}

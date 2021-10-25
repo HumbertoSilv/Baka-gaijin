@@ -1,72 +1,69 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import './App.css';
 import MenuContainer from './components/MenuContainer';
 import Total from './components/Total';
+import SearchBar from './components/SearchBar';
+import ProductResult from './components/ProductResult';
 
-class App extends Component {
 
-  state = {
-    products: [
-      { id: 1, name: 'Hamburguer', category: 'Sanduíches', price: 7.99 },
-      { id: 2, name: 'X-Burguer', category: 'Sanduíches', price: 8.99 },
-      { id: 3, name: 'X-Salada', category: 'Sanduíches', price: 10.99 },
-      { id: 4, name: 'Big Kenzie', category: 'Sanduíches', price: 16.99 },
-      { id: 5, name: 'Guaraná', category: 'Bebidas', price: 4.99 },
-      { id: 6, name: 'Coca-cola', category: 'Bebidas', price: 4.99 },
-      { id: 7, name: 'Fanta', category: 'Bebidas', price: 4.99 },
-    ],
-    filteredProducts: [],
-    currentSale: { total: 0, saleDetails: [] },
-    search: ''
-  }
+function App (){
 
-  showProducts = () => {
-    const {products, search} = this.state;
-    const match = products.filter((cur) => cur.name.toLocaleLowerCase() === search);
-    this.setState({filteredProducts: match});
-  }
+	const [products, setProducts] = useState([
+		{ id: 1, name: 'Temaki', category: "food", description: 'Salmão, atum, filadelphia, shimeji, califórnia, skin, kani, camarão, polvo', img: "https://www.matsuya.com.br/images/img3.png", price: 37.99 },
+		{ id: 2, name: 'Poke', category: "food", description: 'O prato havaiano que conquistou o Brasil', img: "https://www.matsuya.com.br/images/img6.png", price: 28.99 },
+		{ id: 3, name: 'Djo', category: "food", description: 'Salmão e Shimeji', img: "https://www.matsuya.com.br/images/img8.png", price: 10.99 },
+		{ id: 4, name: 'Niguiri', category: "food", description: 'Salmão, atum, skin, kani, camarão, polvo', img: "https://www.matsuya.com.br/images/img4.png", price: 16.99 },
+		{ id: 5, name: 'Sashimi', category: "food", description: 'Salmão, atum, peixe branco, polvo', img: "https://www.matsuya.com.br/images/img5.png", price: 24.99 },
+		{ id: 6, name: 'Shimeji', category: "food", description: 'Com manteiga e cebolinha', img: "https://www.matsuya.com.br/images/img7.png", price: 14.99 },
+		{ id: 7, name: 'Sake e Gin', category: "drink", description: 'Sake e Gin 350ml', img: "https://s2.glbimg.com/rFBQxZHkc062K2rD2spgE0tadDI=/smart/e.glbimg.com/og/ed/f/original/2020/09/30/garden_colling_por_fabio_la_pietra_-_foto_leo_feltran.jpeg", price: 8.99 },
+		{ id: 8, name: 'Awamori', category: "drink", description: 'Copo 370ml', img: "https://savvytokyo.scdn3.secure.raxcdn.com/app/uploads/2018/02/%E7%94%BB%E5%83%8F%EF%BC%91-1024x683.jpg", price: 18.99 },
+		{ id: 9, name: 'Shochu', category: "drink", description: 'Copo 370ml', img: "https://www.japanesefoodguide.com/wp-content/uploads/2021/05/japanese-shochu-1024x683.jpg.webp", price: 12.49 },
+	]);
+	const [filteredProducts, setFilteredProducts] = useState();
+	const [currentSale, setCurrentSale] = useState({total: 0, saleDetails: []});
+	const [search, setSearch] = useState("");
 
-  handleClick = (productId) => {
-    const {total, saleDetails} = this.state.currentSale;
-    const check = saleDetails.some((cur) => {
-      return cur.id === productId.id});
-      check? alert("Esse produto já está em sua lista!") 
-        :  
-      this.setState({currentSale: {total : total + productId.price, saleDetails:[...saleDetails, productId]} });
-  }
+	const showProducts = () => {
+		const match = products.filter((cur) => cur.name.toLocaleLowerCase() === search);
+		setFilteredProducts(...match);
+	}
 
-  render() {    
-    return (
-      <div className="App">
-        <div className="search">
-          <input
-            value={this.props.search}
-            onChange={(e) => this.setState({search: e.target.value})}
-          />
-          <button onClick={this.showProducts} >Search</button>
-        </div>
-        <header className="App-header">
-          <MenuContainer state={this.state} propsHandleClick={this.handleClick}/>
-        </header>
+	const handleClick = (productId) => { 
+		  setCurrentSale({total : currentSale.total + productId.price, saleDetails:[...currentSale.saleDetails, productId]} );
+	}
 
-        <Total propsTotal={this.state.currentSale.total}/>
-
-        <main>
-          {
-            this.state.currentSale.saleDetails.map((cur) => (
-              <div className="box" >
-              <h1>{cur.name}</h1>
-              <p>Category: {cur.category}</p>
-              <p>Price: {cur.price}$</p>
-              </div>
-                )
-            )  
-          }
-        </main>
-      </div>
-    );  
-  }
-  
+	return(
+		<div className="App">
+			<header className="App-header">
+				<div className="baka-gaijin">
+					<div>Baka</div>
+					<div>Gaijin</div>
+				</div>
+         	</header>
+			<main>
+				<SearchBar setSearch={setSearch} showProducts={showProducts} search={search}/>
+				<Total currentSale={currentSale}/>
+				{
+					filteredProducts ?
+						<ProductResult filteredProducts={filteredProducts} handleClick={handleClick}/>
+						:
+						<div>
+							<h2>Pratos</h2>
+							<MenuContainer category="food" products={products} handleClick={handleClick}/>
+							<h2>Bebidas</h2>
+							<MenuContainer category="drink" products={products} handleClick={handleClick}/>
+						</div>
+				}
+         	</main>
+			<footer>
+				<div className="contact">
+					<p>@BakaGaijin</p>
+					<p>(11) 3227-3451</p>
+				</div>
+				<hr/>
+				<div className="copry">Copyright © 2021 Baka Gaijin </div>
+			</footer>
+		</div>
+  	);
 }
-
 export default App;

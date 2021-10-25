@@ -1,29 +1,48 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 
+
+.App-header{
+	height: 30vh;
+	flex-wrap: wrap;
+	padding: 20px;
+	background-color: var(--color-primary);
 }
 
-.App-header, main{
-  display: flex;
-  flex-wrap: wrap;
-  margin: 10px;
-  padding: 20px;
-}
-
-.search {
+.baka-gaijin {
+  font-family: var(--font-primary);
   text-align: center;
-  margin: 40px;
+  margin: 20px;
+  font-size: 4.5em;
+  font-weight: 900;
+  color: var(--background-color);
+  text-shadow: #302929 10px 5px 5px;
 }
-  .search input {
-    width: 300px;
-    height: 30px;
-    border-radius: 8px;
-    border: 1px solid grey;
-  }
-  .search button {
-    width: 100px;
-    height: 33px;
-    border-radius: 8px;
-    border: 2px solid lightblue;
-    background-color: #0f4df8fc;
-    color: white;
-  }
+
+h2 {
+	padding: 25px 5px;
+	margin: 0 10px;
+	color: var(--color-text-primary);
+	font-size: 2em;
+}
+
+.contact {
+	padding: 50px 0 5px;
+	display: flex;
+	justify-content: space-evenly;
+	font-weight: 500;
+}
+
+.copry {
+	text-align: center;
+    padding: 10px;
+    color: #36383a;
+    font-weight: 500;
+}
+
+ @media screen and (min-width: 600px) {
+	.baka-gaijin {
+		margin: 8px;
+    	font-size: 5.5em;
+	  }
+
+ }
