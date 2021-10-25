@@ -8,3 +8,5 @@ Link do [Baka Gaijin]()
 
 ![screen1.png](screen1.png)
 ![screen2.png](screen2.png)
+![screen3.png](screen3.png)
+![screen4.png](screen4.png)
