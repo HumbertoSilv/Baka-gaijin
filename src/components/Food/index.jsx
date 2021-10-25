@@ -7,7 +7,7 @@ const Food = ({products, handleClick}) => {
         <>
         {
             drinkList.map((cur) => (
-            <div className="box text" >
+            <div className="food-box text" >
             <div className="food-img">
                 <img src={cur.img} alt={cur.name} />
             </div>

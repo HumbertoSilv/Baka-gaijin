@@ -4,7 +4,6 @@ import MenuContainer from './components/MenuContainer';
 import Total from './components/Total';
 import SearchBar from './components/SearchBar';
 import ProductResult from './components/ProductResult';
-import img04 from './assets/img04.png';
 
 
 function App (){
@@ -60,7 +59,6 @@ function App (){
 				<div className="contact">
 					<p>@BakaGaijin</p>
 					<p>(11) 3227-3451</p>
-					<img className="img04" src={img04} alt="" />
 				</div>
 				<hr/>
 				<div className="copry">Copyright © 2021 Baka Gaijin </div>

@@ -1,68 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
-button {
-	cursor: pointer;
-}
+
 
 .App-header{
 	height: 30vh;
 	flex-wrap: wrap;
 	padding: 20px;
-	background-color: #ff2e2e;
+	background-color: var(--color-primary);
 }
 
-	.img04 {
-		display: none;
-	}
-
 .baka-gaijin {
-  font-family: 'MedievalSharp', cursive;
+  font-family: var(--font-primary);
   text-align: center;
   margin: 20px;
   font-size: 4.5em;
   font-weight: 900;
-  color: #fbfaf0;
+  color: var(--background-color);
   text-shadow: #302929 10px 5px 5px;
 }
 
 h2 {
 	padding: 25px 5px;
 	margin: 0 10px;
-	color: #36383a;
-	background-color: #fbfaf0;
+	color: var(--color-text-primary);
 	font-size: 2em;
 }
 
 .contact {
-	background-color: #fbfaf0;
 	padding: 50px 0 5px;
 	display: flex;
 	justify-content: space-evenly;
-	color: #36383a;
 	font-weight: 500;
 }
 
 .copry {
 	text-align: center;
     padding: 10px;
-    background-color: #fbfaf0;
     color: #36383a;
     font-weight: 500;
 }
- hr {
-	 margin: 0;
- }
 
  @media screen and (min-width: 600px) {
 	.baka-gaijin {
-		font-family: 'MedievalSharp', cursive;
 		margin: 8px;
     	font-size: 5.5em;
 	  }
 
-	.img04 {
-		width: 20%;
-		left: 570px;
-		position: relative;
-		background-color: #fbfaf0;
-	}
  }
